@@ -2,12 +2,14 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { TalkListComponent } from './talk-list/talk-list.component';
 
 describe('App: Angular2IntroLiveCoding', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        TalkListComponent
       ],
     });
   });
