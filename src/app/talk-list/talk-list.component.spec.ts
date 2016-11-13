@@ -25,4 +25,13 @@ describe('TalkListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a talk list with several elements', () => {
+    let de = fixture.debugElement.query(By.css('.talk-list-container'));
+    let el = de.nativeElement;
+    expect(el).not.toBeNull();
+
+    let children = de.queryAll(By.css('.talk-item'));
+    expect(children.length).toEqual(5);
+  });
 });
