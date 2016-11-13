@@ -2,9 +2,13 @@
   List of talks for this conference
 </p>
 <div class='talk-list-container'>
-  <div *ngFor="let talk of talkList" class="talk-item mdl-card mdl-shadow--2dp mdl-card--border">
+  <div *ngFor="let talk of talkList" class="talk-item mdl-card mdl-shadow--2dp">
     <div class='mdl-card__title'>
-      {{ talk }}
+      {{ talk.title }}
+    </div>
+    <div class='mdl-card__supporting-text'>
+      <p>{{ talk.description }}</p>
+      <p>By {{ talk.author }}</p>
     </div>
   </div>
 </div>
