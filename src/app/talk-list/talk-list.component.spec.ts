@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
+import { TalkService } from '../talk.service';
 import { TalkListComponent } from './talk-list.component';
 
 describe('TalkListComponent', () => {
@@ -11,7 +12,8 @@ describe('TalkListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TalkListComponent ]
+      declarations: [ TalkListComponent ],
+      providers: [ TalkService ]
     })
     .compileComponents();
   }));
