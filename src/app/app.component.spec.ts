@@ -2,6 +2,8 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { TalkService } from './talk.service';
+import { MockTalkService } from './talk.service.stub';
 import { TalkListComponent } from './talk-list/talk-list.component';
 
 describe('App: Angular2IntroLiveCoding', () => {
@@ -11,6 +13,7 @@ describe('App: Angular2IntroLiveCoding', () => {
         AppComponent,
         TalkListComponent
       ],
+      providers: [ { provide: TalkService, useClass: MockTalkService } ]
     });
   });
 

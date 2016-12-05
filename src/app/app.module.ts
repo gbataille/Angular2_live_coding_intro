@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TalkListComponent } from './talk-list/talk-list.component';
+import { TalkService } from './talk.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TalkListComponent } from './talk-list/talk-list.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [TalkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
