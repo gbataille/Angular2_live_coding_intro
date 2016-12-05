@@ -15,7 +15,8 @@ export class TalkListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.talkList = this.talkService.getTalks();
+    this.talkService.getTalks()
+      .then(talks => this.talkList = talks);
   }
 
 }

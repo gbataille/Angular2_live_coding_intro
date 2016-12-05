@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+
 
 import { Talk } from './talk';
 
+export interface ITalkService {
+  getTalks(): Promise<Talk[]>;
+}
+
 @Injectable()
-export class TalkService {
+export class TalkService implements ITalkService {
 
-  talkList = [
-    new Talk('Angular2', 'A introductory session on Angular2. This is a live coding session presenting the most common features of the framework', 'Greg'),
-    new Talk('Git advanced', 'An advanced talk on GIT. Discover GIT commands and flow you had not dreamed of yet', 'Greg'),
-    new Talk('Flexbox for dummies', "You don't know what flexbox are, yet you are a front end developer? This session is for you", 'Greg'),
-    new Talk('Realtime CFF data', 'Return on experience fo the implementation of a big data system based no CFF data', 'Alex'),
-    new Talk('Machine learning', 'Come discover what machine learning really is once you remove all the buzz', 'Benoit'),
-  ];
+  constructor(private http: Http) {}
 
-  constructor() { }
-
-  getTalks(): Talk[] {
-    return this.talkList;
+  getTalks(): Promise<Talk[]> {
+    let headers = new Headers();
+    headers.append('X-api-key', 'VFrMcPFk6qfWyYmsjUn54To0dwRiPFV8stdoBcx3');
+    return this.http.get("https://emzlbpzvf3.execute-api.eu-west-1.amazonaws.com/prod/getTalksDemo", {
+      headers: headers
+    })
+      .toPromise()
+      .then(response => response.json().talks as Talk[])
+      .catch(error => console.log(error));
   }
 }

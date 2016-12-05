@@ -1,16 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { TalkService } from './talk.service';
+import { MockTalkService } from './talk.service.stub';
 
 describe('Service: Talk', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [TalkService]
-    });
-  });
-
-  it('should ...', inject([TalkService], (service: TalkService) => {
-    expect(service).toBeTruthy();
-  }));
 });
