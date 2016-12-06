@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { TalkService } from './talk.service';
 import { MockTalkService } from './talk.service.stub';
 import { TalkListComponent } from './talk-list/talk-list.component';
+import { TalkDetailComponent } from './talk-detail/talk-detail.component';
 
 describe('App: Angular2IntroLiveCoding', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        TalkListComponent
+        TalkListComponent,
+        TalkDetailComponent
       ],
       providers: [ { provide: TalkService, useClass: MockTalkService } ]
     });

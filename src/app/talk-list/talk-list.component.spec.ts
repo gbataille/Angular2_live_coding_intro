@@ -8,13 +8,14 @@ import { Talk } from '../talk';
 import { ITalkService, TalkService } from '../talk.service';
 import { MockTalkService } from '../talk.service.stub';
 import { TalkListComponent } from './talk-list.component';
+import { TalkDetailComponent } from '../talk-detail/talk-detail.component';
 
 describe('TalkListComponent', () => {
   let component: TalkListComponent;
   let fixture: ComponentFixture<TalkListComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({ declarations: [ TalkListComponent ],
+    TestBed.configureTestingModule({ declarations: [ TalkListComponent, TalkDetailComponent ],
       providers: [ {provide: TalkService, useClass: MockTalkService} ]
     })
     .compileComponents();
