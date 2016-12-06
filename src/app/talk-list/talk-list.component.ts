@@ -10,6 +10,7 @@ import { Talk } from '../talk';
 export class TalkListComponent implements OnInit {
 
   private talkList: Talk[];
+  private selectedTalk: Talk;
 
   constructor(private talkService: TalkService) {
   }
@@ -17,6 +18,10 @@ export class TalkListComponent implements OnInit {
   ngOnInit() {
     this.talkService.getTalks()
       .then(talks => this.talkList = talks);
+  }
+
+  onSelect(talk: Talk) {
+    this.selectedTalk = talk;
   }
 
 }
