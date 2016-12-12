@@ -25,4 +25,11 @@ export class TalkService implements ITalkService {
       .then(response => response.json().talks as Talk[])
       .catch(error => console.log(error));
   }
+
+  getTalk(title: string): Promise<Talk> {
+    return this.getTalks()
+      .then(talks => {
+        return talks.find(talk => talk.title === title)
+      });
+  }
 }

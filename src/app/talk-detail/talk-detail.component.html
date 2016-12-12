@@ -1,6 +1,8 @@
-<h4>Details for {{ talk.title }}</h4>
-<label>Title:</label><span>{{ talk.title }}</span>
-<label>Author:</label><span>{{ talk.author }}</span>
-<p>
-{{ talk.description }}
-</p>
+<div *ngIf="talk">
+  <h4>Details for {{ talk.title }}</h4>
+  <label>Title:</label><span>{{ talk.title }}</span>
+  <label>Author:</label><span>{{ talk.author }}</span>
+  <p>
+  {{ talk.description }}
+  </p>
+</div>

@@ -2,8 +2,9 @@
   List of talks for this conference
 </p>
 <div class='talk-list-container'>
-  <div *ngFor="let talk of talkList" class="talk-item mdl-card mdl-shadow--2dp"
-       (click)="onSelect(talk)">
+  <a *ngFor="let talk of talkList" class="talk-item mdl-card mdl-shadow--2dp"
+       [routerLink]="['/talk', talk.title]"
+       >
     <div class='mdl-card__title'>
       {{ talk.title }}
     </div>
@@ -11,7 +12,7 @@
       <p>{{ talk.description }}</p>
       <p>By {{ talk.author }}</p>
     </div>
-  </div>
+  </a>
 </div>
 
 <div *ngIf="selectedTalk">

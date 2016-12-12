@@ -22,12 +22,13 @@ import { TalkDetailComponent } from './talk-detail/talk-detail.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: TalkListComponent,
+        redirectTo: '/talks',
+        pathMatch: "full"
       }, {
         path: 'talks',
         component: TalkListComponent,
       }, {
-        path: 'talk/{id}',
+        path: 'talk/:title',
         component: TalkDetailComponent
       }
     ])
