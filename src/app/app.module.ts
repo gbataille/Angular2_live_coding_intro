@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TalkListComponent } from './talk-list/talk-list.component';
@@ -17,7 +18,20 @@ import { TalkDetailComponent } from './talk-detail/talk-detail.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/talks',
+        pathMatch: "full"
+      }, {
+        path: 'talks',
+        component: TalkListComponent,
+      }, {
+        path: 'talk/:title',
+        component: TalkDetailComponent
+      }
+    ])
   ],
   providers: [TalkService],
   bootstrap: [AppComponent]
